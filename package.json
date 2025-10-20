@@ -9,12 +9,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nrkno/sofie-hyperdeck-connection.git"
+    "url": "git+https://github.com/Sofie-Automation/sofie-hyperdeck-connection.git"
   },
   "bugs": {
-    "url": "https://github.com/nrkno/sofie-hyperdeck-connection/issues"
+    "url": "https://github.com/Sofie-Automation/sofie-hyperdeck-connection/issues"
   },
-  "homepage": "https://github.com/nrkno/sofie-hyperdeck-connection#readme",
+  "homepage": "https://github.com/Sofie-Automation/sofie-hyperdeck-connection#readme",
   "contributors": [
     {
       "name": "Julian Waller",

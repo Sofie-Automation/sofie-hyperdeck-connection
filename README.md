@@ -1,15 +1,17 @@
 # Sofie HyperDeck Connection Library
-[![CircleCI](https://circleci.com/gh/nrkno/sofie-hyperdeck-connection.svg?style=svg)](https://circleci.com/gh/nrkno/sofie-hyperdeck-connection)
-[![codecov](https://codecov.io/gh/nrkno/sofie-hyperdeck-connection/branch/master/graph/badge.svg)](https://codecov.io/gh/nrkno/sofie-hyperdeck-connection)
 
-This is the _HyperDeck Connection_ library of the [**Sofie** TV Automation System](https://github.com/nrkno/Sofie-TV-automation/), used for connecting to Blackmagic Design's _HyperDeck_ devices.
+[![Node CI](https://github.com/Sofie-Automation/sofie-hyperdeck-connection/actions/workflows/node.yaml/badge.svg)](https://github.com/Sofie-Automation/sofie-hyperdeck-connection/actions/workflows/node.yaml)
+[![codecov](https://codecov.io/gh/Sofie-Automation/sofie-hyperdeck-connection/branch/main/graph/badge.svg)](https://codecov.io/gh/Sofie-Automation/sofie-hyperdeck-connection/)
+[![npm](https://img.shields.io/npm/v/hyperdeck-connection)](https://www.npmjs.com/package/hyperdeck-connection)
 
+This is the _HyperDeck Connection_ library of the [**Sofie** TV Automation System](https://github.com/Sofie-Automation/Sofie-TV-automation/), used for connecting to Blackmagic Design's _HyperDeck_ devices.
 
 ## General Sofie System Information
-* [_Sofie_ Documentation](https://nrkno.github.io/sofie-core/)
-* [_Sofie_ Releases](https://nrkno.github.io/sofie-core/releases)
-* [Contribution Guidelines](CONTRIBUTING.md)
-* [License](LICENSE)
+
+- [_Sofie_ Documentation](https://Sofie-Automation.github.io/sofie-core/)
+- [_Sofie_ Releases](https://Sofie-Automation.github.io/sofie-core/releases)
+- [Contribution Guidelines](CONTRIBUTING.md)
+- [License](LICENSE)
 
 ---
 
@@ -31,7 +33,7 @@ yarn add hyperdeck-connection
 For library developers installation steps are as following:
 
 ```sh
-git clone https://github.com/nrkno/tv-automation-hyperdeck-connection
+git clone https://github.com/Sofie-Automation/sofie-hyperdeck-connection
 yarn
 yarn build
 ```
