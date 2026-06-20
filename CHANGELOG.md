@@ -1,6 +1,22 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [Convential Commits](https://www.conventionalcommits.org/en/v1.0.0/#specification) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#specification) for commit guidelines.
+
+## [3.0.0](https://github.com/Sofie-Automation/sofie-hyperdeck-connection/compare/v2.0.1...v3.0.0) (Sat Jun 20 2026)
+
+## Breaking changes
+
+### Features
+
+* **!** esm [1d20142](https://github.com/Sofie-Automation/sofie-hyperdeck-connection/commit/1d20142f97d1d9535c57be9d4e11f6550194ef9f)
+
+### Features
+
+* esm [c0dfd63](https://github.com/Sofie-Automation/sofie-hyperdeck-connection/commit/c0dfd635c5f70ab172ba8487f05f36f2b43f4081)
+
+### Fixes
+
+* ShuttleCommand ignoring 0 speed [93ddd03](https://github.com/Sofie-Automation/sofie-hyperdeck-connection/commit/93ddd03821157876f77b50394b6765cf65c31735)
 
 ## [2.0.1](https://github.com/Sofie-Automation/sofie-hyperdeck-connection/compare/v2.0.0...v2.0.1) (Mon Mar 11 2024)
 
