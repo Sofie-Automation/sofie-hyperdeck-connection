@@ -1,4 +1,4 @@
-import { ConnectionInfoResponse } from './commands/connect.js'
+import type { ConnectionInfoResponse } from './commands/connect.js'
 import { SlotStatus, TransportStatus, VideoFormat } from './enums.js'
 
 export interface HyperdeckEvents extends HyperdeckAsyncEvents {

@@ -1,5 +1,5 @@
 import { SynchronousCode } from '../codes.js'
-import { NamedMessage, ResponseMessage } from '../message.js'
+import type { ResponseMessage, NamedMessage } from '../message.js'
 import { AbstractCommand } from './abstractCommand.js'
 
 const deserializeRegex = /(?<fileName>.+) (?<codec>\w+) (?<format>\w+) (?<timecode>[\d:]+)$/i

@@ -1,5 +1,5 @@
 import { AbstractCommandNoResponse, AbstractCommand } from './abstractCommand.js'
-import { NamedMessage, ResponseMessage } from '../message.js'
+import type { ResponseMessage, NamedMessage } from '../message.js'
 import { SynchronousCode } from '../codes.js'
 import { FilesystemFormat } from '../enums.js'
 

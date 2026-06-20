@@ -15,13 +15,6 @@ This is the _HyperDeck Connection_ library of the [**Sofie** TV Automation Syste
 
 ---
 
-## Technology Highlights
-
-- Typescript
-- Yarn
-- Jeststandard-version
-- codecov
-
 ## Installation
 
 For usage by library consumers installation is as easy as:

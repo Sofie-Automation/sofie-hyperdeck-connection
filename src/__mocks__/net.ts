@@ -1,7 +1,8 @@
 import { EventEmitter } from 'events'
+import { expect } from 'vitest'
 const setTimeoutOrg = setTimeout
 const sockets: Array<Socket> = []
-// eslint-disable-next-line @typescript-eslint/ban-types
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 const onNextSocket: Array<Function> = []
 
 export class Socket extends EventEmitter {
@@ -57,7 +58,6 @@ export class Socket extends EventEmitter {
 
 		const w = this.expectedWrites.shift()
 		if (w) {
-			// eslint-disable-next-line jest/no-standalone-expect
 			expect(buff).toEqual(w.call)
 			this.emit('data', w.response)
 		}

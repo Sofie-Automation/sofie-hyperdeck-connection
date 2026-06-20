@@ -1,6 +1,6 @@
 import { SynchronousCode } from '../codes.js'
 import { VideoFormat, SlotStatus } from '../enums.js'
-import { ResponseMessage, NamedMessage } from '../message.js'
+import type { ResponseMessage, NamedMessage } from '../message.js'
 import { AbstractCommand } from './abstractCommand.js'
 
 export interface SlotInfoCommandResponse {

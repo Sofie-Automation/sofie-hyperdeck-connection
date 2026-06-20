@@ -2,10 +2,10 @@ import { Socket } from 'net'
 import { ResponseCodeType, GetResponseCodeType, AsynchronousCode } from './codes.js'
 import { AbstractCommand } from './commands/index.js'
 import * as AsyncHandlers from './asyncHandlers/index.js'
-import { ResponseMessage } from './message.js'
+import type { ResponseMessage } from './message.js'
 import { DummyConnectCommand, WatchdogPeriodCommand, PingCommand, QuitCommand } from './commands/internal.js'
 import { buildMessageStr, MultilineParser } from './parser.js'
-import { HyperdeckAsyncEvents, HyperdeckEvents } from './events.js'
+import type { HyperdeckAsyncEvents, HyperdeckEvents } from './events.js'
 import { EventEmitter } from 'node:events'
 
 export interface HyperdeckOptions {
@@ -93,7 +93,7 @@ export class Hyperdeck extends EventEmitter<HyperdeckEvents> {
 			try {
 				const handler: AsyncHandlers.IHandler<keyof HyperdeckAsyncEvents> = new (AsyncHandlers as any)[h]()
 				this._asyncHandlers[handler.responseCode] = handler
-			} catch (e) {
+			} catch (_e) {
 				// ignore as likely not a class
 			}
 		}
@@ -269,7 +269,7 @@ export class Hyperdeck extends EventEmitter<HyperdeckEvents> {
 			this._log('socket write failed', e)
 			try {
 				this.socket.destroy()
-			} catch (e2) {
+			} catch (_e2) {
 				// ignore
 			}
 			return true // It failed, but there is no point trying to send another command
@@ -320,6 +320,7 @@ export class Hyperdeck extends EventEmitter<HyperdeckEvents> {
 
 		const h = this._asyncHandlers[msg.code]
 		if (h) {
+			// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
 			this.emit(h.eventName, h.deserialize(msg) as any)
 		} else {
 			this._log('unknown async response:', msg)

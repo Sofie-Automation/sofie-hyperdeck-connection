@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Socket as MockSocket } from 'net'
-import { Hyperdeck } from '../hyperdeck'
-import { StopCommand } from '../commands'
+import { Hyperdeck } from '../hyperdeck.js'
+import { StopCommand } from '../commands/index.js'
+import { beforeAll, beforeEach, describe, expect, test, vi } from 'vitest'
 
-jest.mock('net')
+vi.mock('net', async () => import('../__mocks__/net.js'))
 const setTimeoutOrg = setTimeout
 
 async function waitALittleBit() {
@@ -15,7 +15,7 @@ async function waitALittleBit() {
 describe('Hyperdeck', () => {
 	let now = 10000
 	beforeAll(() => {
-		Date.now = jest.fn(() => {
+		Date.now = vi.fn(() => {
 			return getCurrentTime()
 		})
 	})
@@ -24,16 +24,16 @@ describe('Hyperdeck', () => {
 	}
 	function advanceTime(advanceTime: number) {
 		now += advanceTime
-		jest.advanceTimersByTime(advanceTime)
+		vi.advanceTimersByTime(advanceTime)
 	}
 	beforeEach(() => {
 		now = 10000
 	})
 
 	test('Check simple connection', async () => {
-		const onSocketCreate = jest.fn()
-		const onConnection = jest.fn()
-		const onSocketWrite = jest.fn()
+		const onSocketCreate = vi.fn()
+		const onConnection = vi.fn()
+		const onSocketWrite = vi.fn()
 
 		// @ts-ignore MockSocket
 		MockSocket.mockOnNextSocket((socket: any) => {
@@ -49,8 +49,8 @@ describe('Hyperdeck', () => {
 
 		const hp = new Hyperdeck({ pingPeriod: 0 })
 
-		const onClientConnection = jest.fn()
-		const onClientError = jest.fn()
+		const onClientConnection = vi.fn()
+		const onClientError = vi.fn()
 		hp.on('connected', onClientConnection)
 		hp.on('error', onClientError)
 
@@ -67,12 +67,12 @@ describe('Hyperdeck', () => {
 	})
 
 	test('Check connection retry', async () => {
-		jest.useFakeTimers()
+		vi.useFakeTimers()
 
-		const onSocketCreate = jest.fn()
-		const onConnection = jest.fn()
-		const onDisconnection = jest.fn()
-		const onSocketWrite = jest.fn()
+		const onSocketCreate = vi.fn()
+		const onConnection = vi.fn()
+		const onDisconnection = vi.fn()
+		const onSocketWrite = vi.fn()
 
 		let thisSocket: any
 		// @ts-ignore MockSocket
@@ -90,8 +90,8 @@ describe('Hyperdeck', () => {
 
 		const hp = new Hyperdeck({ pingPeriod: 0 })
 
-		const onClientConnection = jest.fn()
-		const onClientError = jest.fn()
+		const onClientConnection = vi.fn()
+		const onClientError = vi.fn()
 		hp.on('connected', onClientConnection)
 		hp.on('error', onClientError)
 
@@ -116,11 +116,11 @@ describe('Hyperdeck', () => {
 		expect(onSocketWrite).toHaveBeenCalledTimes(0)
 	})
 
-	// eslint-disable-next-line jest/no-commented-out-tests
+	// eslint-disable-next-line vitest/no-commented-out-tests
 	// test('Check protocol version', async () => {
-	// 	let onSocketCreate = jest.fn()
-	// 	let onConnection = jest.fn()
-	// 	let onSocketWrite = jest.fn()
+	// 	let onSocketCreate = vi.fn()
+	// 	let onConnection = vi.fn()
+	// 	let onSocketWrite = vi.fn()
 
 	// 	// @ts-ignore MockSocket
 	// 	MockSocket.mockOnNextSocket((socket: any) => {
@@ -136,8 +136,8 @@ describe('Hyperdeck', () => {
 
 	// 	const hp = new Hyperdeck({ pingPeriod: 0 })
 
-	// 	let onClientConnection = jest.fn()
-	// 	let onClientError = jest.fn()
+	// 	let onClientConnection = vi.fn()
+	// 	let onClientError = vi.fn()
 	// 	hp.on('connected', onClientConnection)
 	// 	hp.on('error', onClientError)
 
@@ -154,11 +154,11 @@ describe('Hyperdeck', () => {
 	// })
 
 	test('Check ping setup', async () => {
-		jest.useFakeTimers()
+		vi.useFakeTimers()
 
-		const onSocketCreate = jest.fn()
-		const onConnection = jest.fn()
-		const onSocketWrite = jest.fn()
+		const onSocketCreate = vi.fn()
+		const onConnection = vi.fn()
+		const onSocketWrite = vi.fn()
 
 		// @ts-ignore MockSocket
 		MockSocket.mockOnNextSocket((socket: any) => {
@@ -177,8 +177,8 @@ describe('Hyperdeck', () => {
 
 		const hp = new Hyperdeck({ pingPeriod: 12000 })
 
-		const onClientConnection = jest.fn()
-		const onClientError = jest.fn()
+		const onClientConnection = vi.fn()
+		const onClientError = vi.fn()
 		hp.on('connected', onClientConnection)
 		hp.on('error', onClientError)
 
@@ -206,9 +206,9 @@ describe('Hyperdeck', () => {
 	})
 
 	test('Check send command correct response', async () => {
-		const onSocketCreate = jest.fn()
-		const onConnection = jest.fn()
-		const onSocketWrite = jest.fn()
+		const onSocketCreate = vi.fn()
+		const onConnection = vi.fn()
+		const onSocketWrite = vi.fn()
 
 		// @ts-ignore MockSocket
 		MockSocket.mockOnNextSocket((socket: any) => {
@@ -226,8 +226,8 @@ describe('Hyperdeck', () => {
 
 		const hp = new Hyperdeck({ pingPeriod: 0 })
 
-		const onClientConnection = jest.fn()
-		const onClientError = jest.fn()
+		const onClientConnection = vi.fn()
+		const onClientError = vi.fn()
 		hp.on('connected', onClientConnection)
 		hp.on('error', onClientError)
 
@@ -240,7 +240,7 @@ describe('Hyperdeck', () => {
 		expect(onConnection).toHaveBeenCalledTimes(1)
 		expect(onSocketCreate).toHaveBeenCalledTimes(1)
 
-		const onResolve = jest.fn()
+		const onResolve = vi.fn()
 		await hp.sendCommand(new StopCommand()).then(onResolve)
 
 		expect(onSocketWrite).toHaveBeenCalledTimes(1)
@@ -248,9 +248,9 @@ describe('Hyperdeck', () => {
 	})
 
 	test('Check send command bad response', async () => {
-		const onSocketCreate = jest.fn()
-		const onConnection = jest.fn()
-		const onSocketWrite = jest.fn()
+		const onSocketCreate = vi.fn()
+		const onConnection = vi.fn()
+		const onSocketWrite = vi.fn()
 
 		// @ts-ignore MockSocket
 		MockSocket.mockOnNextSocket((socket: any) => {
@@ -268,8 +268,8 @@ describe('Hyperdeck', () => {
 
 		const hp = new Hyperdeck({ pingPeriod: 0 })
 
-		const onClientConnection = jest.fn()
-		const onClientError = jest.fn()
+		const onClientConnection = vi.fn()
+		const onClientError = vi.fn()
 		hp.on('connected', onClientConnection)
 		hp.on('error', onClientError)
 
@@ -282,7 +282,7 @@ describe('Hyperdeck', () => {
 		expect(onConnection).toHaveBeenCalledTimes(1)
 		expect(onSocketCreate).toHaveBeenCalledTimes(1)
 
-		const onResolve = jest.fn()
+		const onResolve = vi.fn()
 		hp.sendCommand(new StopCommand()).catch(onResolve)
 
 		await waitALittleBit()
@@ -291,9 +291,9 @@ describe('Hyperdeck', () => {
 	})
 
 	test('Check async', async () => {
-		const onSocketCreate = jest.fn()
-		const onConnection = jest.fn()
-		const onSocketWrite = jest.fn()
+		const onSocketCreate = vi.fn()
+		const onConnection = vi.fn()
+		const onSocketWrite = vi.fn()
 
 		let thisSocket: any
 		// @ts-ignore MockSocket
@@ -311,8 +311,8 @@ describe('Hyperdeck', () => {
 
 		const hp = new Hyperdeck({ pingPeriod: 0 })
 
-		const onClientConnection = jest.fn()
-		const onClientError = jest.fn()
+		const onClientConnection = vi.fn()
+		const onClientError = vi.fn()
 		hp.on('connected', onClientConnection)
 		hp.on('error', onClientError)
 
@@ -325,7 +325,7 @@ describe('Hyperdeck', () => {
 		expect(onConnection).toHaveBeenCalledTimes(1)
 		expect(onSocketCreate).toHaveBeenCalledTimes(1)
 
-		const onAsyncReceive = jest.fn()
+		const onAsyncReceive = vi.fn()
 		hp.on('notify.slot', onAsyncReceive)
 
 		thisSocket.mockData('502 fake slot async')
@@ -335,9 +335,9 @@ describe('Hyperdeck', () => {
 	})
 
 	test('Check async middle of command', async () => {
-		const onSocketCreate = jest.fn()
-		const onConnection = jest.fn()
-		const onSocketWrite = jest.fn()
+		const onSocketCreate = vi.fn()
+		const onConnection = vi.fn()
+		const onSocketWrite = vi.fn()
 
 		let thisSocket: any
 		// @ts-ignore MockSocket
@@ -358,8 +358,8 @@ describe('Hyperdeck', () => {
 
 		const hp = new Hyperdeck({ pingPeriod: 0 })
 
-		const onClientConnection = jest.fn()
-		const onClientError = jest.fn()
+		const onClientConnection = vi.fn()
+		const onClientError = vi.fn()
 		hp.on('connected', onClientConnection)
 		hp.on('error', onClientError)
 
@@ -372,10 +372,10 @@ describe('Hyperdeck', () => {
 		expect(onConnection).toHaveBeenCalledTimes(1)
 		expect(onSocketCreate).toHaveBeenCalledTimes(1)
 
-		const onAsyncReceive = jest.fn()
+		const onAsyncReceive = vi.fn()
 		hp.on('notify.slot', onAsyncReceive)
 
-		const onResolve = jest.fn()
+		const onResolve = vi.fn()
 		const res = hp.sendCommand(new StopCommand()).then(onResolve)
 
 		await waitALittleBit()
@@ -387,4 +387,3 @@ describe('Hyperdeck', () => {
 		await res
 	})
 })
-/* eslint-enable @typescript-eslint/ban-ts-comment */

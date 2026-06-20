@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { MultilineParser, buildMessageStr } from '../parser'
-import { NamedMessage } from '../message'
+import { MultilineParser, buildMessageStr } from '../parser.js'
+import type { NamedMessage } from '../message.js'
+import { describe, expect, test } from 'vitest'
 
 describe('Parser', () => {
 	test('Parser: response single line', async () => {

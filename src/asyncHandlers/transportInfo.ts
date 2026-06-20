@@ -1,9 +1,9 @@
 import { TransportStatus, VideoFormat } from '../enums.js'
-import { ResponseMessage } from '../message.js'
+import type { ResponseMessage } from '../message.js'
 import { parseIdOrNone, parseIntIfDefined, parseBool, parseStringOrNone } from '../util.js'
-import { IHandler } from './iHandler.js'
+import type { IHandler } from './iHandler.js'
 import { AsynchronousCode } from '../codes.js'
-import { TransportInfoChangeResponse } from '../events.js'
+import type { TransportInfoChangeResponse } from '../events.js'
 
 export class TransportInfoChange implements IHandler<'notify.transport'> {
 	responseCode = AsynchronousCode.TransportInfo

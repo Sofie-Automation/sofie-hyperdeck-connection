@@ -1,7 +1,7 @@
-import { ResponseMessage } from '../message.js'
-import { IHandler } from './iHandler.js'
+import type { ResponseMessage } from '../message.js'
+import type { IHandler } from './iHandler.js'
 import { AsynchronousCode } from '../codes.js'
-import { ConfigurationChangeResponse } from '../events.js'
+import type { ConfigurationChangeResponse } from '../events.js'
 
 export class ConfigurationChange implements IHandler<'notify.configuration'> {
 	responseCode = AsynchronousCode.Configuration
@@ -10,17 +10,17 @@ export class ConfigurationChange implements IHandler<'notify.configuration'> {
 	deserialize(msg: ResponseMessage): ConfigurationChangeResponse {
 		const res: ConfigurationChangeResponse = {
 			audioInput: msg.params['audio input'] as ConfigurationChangeResponse['audioInput'],
-			videoInput: msg.params['video input'] as ConfigurationChangeResponse['videoInput'],
-			fileFormat: msg.params['file format'] as ConfigurationChangeResponse['fileFormat'],
+			videoInput: msg.params['video input'], // as ConfigurationChangeResponse['videoInput'],
+			fileFormat: msg.params['file format'], // as ConfigurationChangeResponse['fileFormat'],
 			// v1.11 optional props:
 			audioCodec: msg.params['audio codec'] as ConfigurationChangeResponse['audioCodec'],
 			timecodeInput: msg.params['timecode input'] as ConfigurationChangeResponse['timecodeInput'],
-			timecodePreset: msg.params['timecode preset'] as ConfigurationChangeResponse['timecodePreset'],
+			timecodePreset: msg.params['timecode preset'], // as ConfigurationChangeResponse['timecodePreset'],
 			audioInputChannels: msg.params['audio input channels']
 				? parseInt(msg.params['audio input channels'])
 				: undefined,
 			recordTrigger: msg.params['record trigger'] as ConfigurationChangeResponse['recordTrigger'],
-			recordPrefix: msg.params['record prefix'] as ConfigurationChangeResponse['recordPrefix'],
+			recordPrefix: msg.params['record prefix'], // as ConfigurationChangeResponse['recordPrefix'],
 			appendTimestamp: msg.params['append timestamp'] ? msg.params['append timestamp'] === 'true' : undefined,
 		}
 		return res

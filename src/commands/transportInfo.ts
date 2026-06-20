@@ -1,6 +1,6 @@
 import { SynchronousCode } from '../codes.js'
 import { TransportStatus, VideoFormat } from '../enums.js'
-import { ResponseMessage, NamedMessage } from '../message.js'
+import type { ResponseMessage, NamedMessage } from '../message.js'
 import { AbstractCommand } from './abstractCommand.js'
 import { parseIdOrNone, parseBool, parseStringOrNone } from '../util.js'
 

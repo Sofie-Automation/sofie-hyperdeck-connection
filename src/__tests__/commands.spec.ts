@@ -1,4 +1,5 @@
-import { ShuttleCommand } from '../commands/shuttle'
+import { describe, expect, test } from 'vitest'
+import { ShuttleCommand } from '../commands/shuttle.js'
 
 describe('Commands', () => {
 	describe('ShuttleCommand', () => {

@@ -1,4 +1,5 @@
-import { AsynchronousCode, SynchronousCode, ErrorCode, ResponseCodeType, GetResponseCodeType } from '../codes'
+import { describe, expect, test } from 'vitest'
+import { AsynchronousCode, SynchronousCode, ErrorCode, ResponseCodeType, GetResponseCodeType } from '../codes.js'
 
 describe('Codes', () => {
 	test('Codes: AsynchronousCode range', async () => {

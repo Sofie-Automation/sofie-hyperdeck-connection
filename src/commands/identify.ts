@@ -1,5 +1,5 @@
 import { AbstractCommandNoResponse } from './abstractCommand.js'
-import { NamedMessage } from '../message.js'
+import type { NamedMessage } from '../message.js'
 
 export class IdentifyCommand extends AbstractCommandNoResponse {
 	constructor(public enable: boolean) {

@@ -1,4 +1,4 @@
-import { NamedMessage } from '../message.js'
+import type { NamedMessage } from '../message.js'
 import { AbstractCommandNoResponse } from './abstractCommand.js'
 
 export class JogCommand extends AbstractCommandNoResponse {

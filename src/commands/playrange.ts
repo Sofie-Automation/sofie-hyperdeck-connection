@@ -1,5 +1,5 @@
 import { SynchronousCode } from '../codes.js'
-import { ResponseMessage, NamedMessage } from '../message.js'
+import type { ResponseMessage, NamedMessage } from '../message.js'
 import { AbstractCommand, AbstractCommandNoResponse } from './abstractCommand.js'
 
 export interface PlayrangeCommandResponse {

@@ -1,5 +1,5 @@
 import { SynchronousCode } from '../codes.js'
-import { ResponseMessage, NamedMessage } from '../message.js'
+import type { ResponseMessage, NamedMessage } from '../message.js'
 import { AbstractCommand, AbstractCommandNoResponse } from './abstractCommand.js'
 
 export interface ConfigurationCommandResponse {
@@ -27,12 +27,12 @@ export class ConfigurationGetCommand extends AbstractCommand<ConfigurationComman
 			// v1.11 optional props:
 			audioCodec: msg.params['audio codec'] as ConfigurationCommandResponse['audioCodec'],
 			timecodeInput: msg.params['timecode input'] as ConfigurationCommandResponse['timecodeInput'],
-			timecodePreset: msg.params['timecode preset'] as ConfigurationCommandResponse['timecodePreset'],
+			timecodePreset: msg.params['timecode preset'], // as ConfigurationCommandResponse['timecodePreset'],
 			audioInputChannels: msg.params['audio input channels']
 				? parseInt(msg.params['audio input channels'])
 				: undefined,
 			recordTrigger: msg.params['record trigger'] as ConfigurationCommandResponse['recordTrigger'],
-			recordPrefix: msg.params['record prefix'] as ConfigurationCommandResponse['recordPrefix'],
+			recordPrefix: msg.params['record prefix'], // as ConfigurationCommandResponse['recordPrefix'],
 			appendTimestamp: msg.params['append timestamp'] ? msg.params['append timestamp'] === 'true' : undefined,
 		}
 		return res

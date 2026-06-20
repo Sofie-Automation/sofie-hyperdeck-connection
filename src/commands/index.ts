@@ -1,4 +1,4 @@
-export { AbstractCommand, ErrorResponse } from './abstractCommand.js'
+export { AbstractCommand, type ErrorResponse } from './abstractCommand.js'
 
 export * from './cacheInfo.js'
 export * from './clips.js'
