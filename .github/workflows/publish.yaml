@@ -138,12 +138,29 @@ jobs:
         if: ${{ steps.do-publish.outputs.tag == 'latest' }}
         run: |
           yarn docs:html
-      - name: Publish docs
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload docs artifact
+        uses: actions/upload-pages-artifact@v5
         if: ${{ steps.do-publish.outputs.tag == 'latest' }}
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+          path: ./docs
+
+  publish-docs:
+    name: Publish docs to GitHub Pages
+    needs:
+      - prepare
+    if: ${{ needs.prepare.outputs.tag == 'latest' }}
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
 
   publish:
     name: Publish to NPM

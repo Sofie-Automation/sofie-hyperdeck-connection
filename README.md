@@ -36,7 +36,7 @@ If you want to make a contribution, feel free to open a PR.
 ## Usage
 
 ```javascript
-const { Hyperdeck, Commands } = require('hyperdeck-connection')
+import { Hyperdeck, Commands } from 'hyperdeck-connection'
 const myHyperdeck = new Hyperdeck()
 
 myHyperdeck.connect('192.168.168.100')

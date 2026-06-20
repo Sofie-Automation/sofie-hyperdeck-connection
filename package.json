@@ -42,7 +42,7 @@
     "unit": "vitest --run",
     "test": "run lint && run unit",
     "watch": "vitest --watch",
-    "cov": "vitest --coverage && open-cli coverage/lcov-report/index.html",
+    "cov": "vitest --coverage --run && open-cli coverage/lcov-report/index.html",
     "cov-open": "open-cli coverage/lcov-report/index.html",
     "docs": "run docs:html && open-cli docs/index.html",
     "docs:test": "run docs:html",
