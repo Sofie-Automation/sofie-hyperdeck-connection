@@ -4,11 +4,9 @@
 	"exclude": ["node_modules/**", "src/**/*spec.ts", "src/**/__tests__/*", "src/**/__mocks__/*"],
 	"compilerOptions": {
 		"outDir": "./dist",
-		"baseUrl": "./",
-		"paths": {
-			"*": ["./node_modules/*"],
-			"hyperdeck-connection": ["./src/index.ts"]
-		},
-		"types": ["node"]
+		"rootDir": "./src",
+		"types": ["node"],
+		"importHelpers": false, // We shouldn't need anything, so avoid the dependency
+		"alwaysStrict": null
 	}
 }

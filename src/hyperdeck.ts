@@ -1,12 +1,12 @@
 import { Socket } from 'net'
-import EventEmitter = require('eventemitter3')
-import { ResponseCodeType, GetResponseCodeType, AsynchronousCode } from './codes'
-import { AbstractCommand } from './commands'
-import * as AsyncHandlers from './asyncHandlers'
-import { ResponseMessage } from './message'
-import { DummyConnectCommand, WatchdogPeriodCommand, PingCommand, QuitCommand } from './commands/internal'
-import { buildMessageStr, MultilineParser } from './parser'
-import { HyperdeckAsyncEvents, HyperdeckEvents } from './events'
+import { ResponseCodeType, GetResponseCodeType, AsynchronousCode } from './codes.js'
+import { AbstractCommand } from './commands/index.js'
+import * as AsyncHandlers from './asyncHandlers/index.js'
+import { ResponseMessage } from './message.js'
+import { DummyConnectCommand, WatchdogPeriodCommand, PingCommand, QuitCommand } from './commands/internal.js'
+import { buildMessageStr, MultilineParser } from './parser.js'
+import { HyperdeckAsyncEvents, HyperdeckEvents } from './events.js'
+import { EventEmitter } from 'node:events'
 
 export interface HyperdeckOptions {
 	pingPeriod?: number // set to 0 to disable
@@ -41,11 +41,11 @@ export class Hyperdeck extends EventEmitter<HyperdeckEvents> {
 
 	private socket: Socket
 	private _connected = false
-	private _retryConnectTimeout: NodeJS.Timer | null = null
+	private _retryConnectTimeout: NodeJS.Timeout | null = null
 	private _log: (...args: any[]) => void
 	private _commandQueue: QueuedCommand<any>[] = []
 	private _pingPeriod = 5000
-	private _pingInterval: NodeJS.Timer | null = null
+	private _pingInterval: NodeJS.Timeout | null = null
 	private _lastCommandTime = 0
 	private _asyncHandlers: { [key: number]: AsyncHandlers.IHandler<keyof HyperdeckAsyncEvents> } = {}
 	private _parser: MultilineParser

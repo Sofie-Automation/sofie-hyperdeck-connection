@@ -1,7 +1,7 @@
-import { SynchronousCode } from '../codes'
-import { ResponseMessage, NamedMessage } from '../message'
-import { AbstractCommand, AbstractCommandNoResponse } from './abstractCommand'
-import { DynamicRange } from '../enums'
+import { SynchronousCode } from '../codes.js'
+import { ResponseMessage, NamedMessage } from '../message.js'
+import { AbstractCommand, AbstractCommandNoResponse } from './abstractCommand.js'
+import { DynamicRange } from '../enums.js'
 
 export interface DynamicRangeCommandResponse {
 	playbackOverride: DynamicRange

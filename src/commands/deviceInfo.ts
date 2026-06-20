@@ -1,6 +1,6 @@
-import { SynchronousCode } from '../codes'
-import { ResponseMessage, NamedMessage } from '../message'
-import { AbstractCommand } from './abstractCommand'
+import { SynchronousCode } from '../codes.js'
+import { ResponseMessage, NamedMessage } from '../message.js'
+import { AbstractCommand } from './abstractCommand.js'
 
 export interface DeviceInfoCommandResponse {
 	protocolVersion: number

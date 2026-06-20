@@ -1,7 +1,7 @@
-import { AsynchronousCode } from '../codes'
-import { ResponseMessage, NamedMessage } from '../message'
-import { AbstractCommand, AbstractCommandNoResponse } from './abstractCommand'
-import { ConnectionInfoResponse } from './connect'
+import { AsynchronousCode } from '../codes.js'
+import { ResponseMessage, NamedMessage } from '../message.js'
+import { AbstractCommand, AbstractCommandNoResponse } from './abstractCommand.js'
+import { ConnectionInfoResponse } from './connect.js'
 
 // Purpose of this is to emit the connect event with the connectionInfo
 export class DummyConnectCommand extends AbstractCommand<ConnectionInfoResponse> {

@@ -1,6 +1,6 @@
-import { SynchronousCode } from '../codes'
-import { NamedMessage, ResponseMessage } from '../message'
-import { AbstractCommand, AbstractCommandNoResponse } from './abstractCommand'
+import { SynchronousCode } from '../codes.js'
+import { NamedMessage, ResponseMessage } from '../message.js'
+import { AbstractCommand, AbstractCommandNoResponse } from './abstractCommand.js'
 
 export interface ClipInfo {
 	clipId: number
@@ -21,7 +21,11 @@ export interface ClipsCountCommandResponse {
 export class ClipsGetCommand extends AbstractCommand<ClipsGetCommandResponse> {
 	expectedResponseCode = SynchronousCode.ClipsGet
 
-	constructor(public clip?: number, public count?: number, public readonly version?: 1 | 2) {
+	constructor(
+		public clip?: number,
+		public count?: number,
+		public readonly version?: 1 | 2
+	) {
 		super()
 	}
 
@@ -90,7 +94,12 @@ export class ClipsCountCommand extends AbstractCommand<ClipsCountCommandResponse
 }
 
 export class ClipsAddCommand extends AbstractCommandNoResponse {
-	constructor(public name: string, public clip?: string, public inPoint?: string, public outPoint?: string) {
+	constructor(
+		public name: string,
+		public clip?: string,
+		public inPoint?: string,
+		public outPoint?: string
+	) {
 		super()
 	}
 

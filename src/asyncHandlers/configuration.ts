@@ -1,7 +1,7 @@
-import { ResponseMessage } from '../message'
-import { IHandler } from './iHandler'
-import { AsynchronousCode } from '../codes'
-import { ConfigurationChangeResponse } from '../events'
+import { ResponseMessage } from '../message.js'
+import { IHandler } from './iHandler.js'
+import { AsynchronousCode } from '../codes.js'
+import { ConfigurationChangeResponse } from '../events.js'
 
 export class ConfigurationChange implements IHandler<'notify.configuration'> {
 	responseCode = AsynchronousCode.Configuration

@@ -1,5 +1,5 @@
-import { ResponseCode, SynchronousCode } from '../codes'
-import { ResponseMessage, NamedMessage } from '../message'
+import { ResponseCode, SynchronousCode } from '../codes.js'
+import { ResponseMessage, NamedMessage } from '../message.js'
 
 export type ErrorResponse = ResponseMessage
 

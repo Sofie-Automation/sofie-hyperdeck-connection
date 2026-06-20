@@ -1,7 +1,7 @@
-import { SynchronousCode } from '../codes'
-import { VideoFormat, SlotStatus } from '../enums'
-import { ResponseMessage, NamedMessage } from '../message'
-import { AbstractCommand } from './abstractCommand'
+import { SynchronousCode } from '../codes.js'
+import { VideoFormat, SlotStatus } from '../enums.js'
+import { ResponseMessage, NamedMessage } from '../message.js'
+import { AbstractCommand } from './abstractCommand.js'
 
 export interface SlotInfoCommandResponse {
 	slotId: number

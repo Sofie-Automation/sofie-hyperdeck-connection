@@ -1,8 +1,8 @@
-import { SynchronousCode } from '../codes'
-import { TransportStatus, VideoFormat } from '../enums'
-import { ResponseMessage, NamedMessage } from '../message'
-import { AbstractCommand } from './abstractCommand'
-import { parseIdOrNone, parseBool, parseStringOrNone } from '../util'
+import { SynchronousCode } from '../codes.js'
+import { TransportStatus, VideoFormat } from '../enums.js'
+import { ResponseMessage, NamedMessage } from '../message.js'
+import { AbstractCommand } from './abstractCommand.js'
+import { parseIdOrNone, parseBool, parseStringOrNone } from '../util.js'
 
 export interface TransportInfoCommandResponse {
 	status: TransportStatus

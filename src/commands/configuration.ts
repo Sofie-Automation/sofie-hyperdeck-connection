@@ -1,6 +1,6 @@
-import { SynchronousCode } from '../codes'
-import { ResponseMessage, NamedMessage } from '../message'
-import { AbstractCommand, AbstractCommandNoResponse } from './abstractCommand'
+import { SynchronousCode } from '../codes.js'
+import { ResponseMessage, NamedMessage } from '../message.js'
+import { AbstractCommand, AbstractCommandNoResponse } from './abstractCommand.js'
 
 export interface ConfigurationCommandResponse {
 	videoInput: string

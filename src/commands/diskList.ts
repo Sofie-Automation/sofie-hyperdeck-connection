@@ -1,6 +1,6 @@
-import { SynchronousCode } from '../codes'
-import { NamedMessage, ResponseMessage } from '../message'
-import { AbstractCommand } from './abstractCommand'
+import { SynchronousCode } from '../codes.js'
+import { NamedMessage, ResponseMessage } from '../message.js'
+import { AbstractCommand } from './abstractCommand.js'
 
 const deserializeRegex = /(?<fileName>.+) (?<codec>\w+) (?<format>\w+) (?<timecode>[\d:]+)$/i
 const framerateRegex = /\d+(?<scan>[ip])(?<frameRate>\d+)/i

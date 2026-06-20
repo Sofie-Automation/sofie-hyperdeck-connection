@@ -1,4 +1,4 @@
-import { NamedMessage } from './message'
+import type { NamedMessage } from './message.js'
 
 export function SetBoolIfDefined(msg: NamedMessage, name: string, val: boolean | undefined): void {
 	if (val !== undefined) {

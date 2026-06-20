@@ -1,6 +1,6 @@
-import { AbstractCommandNoResponse } from './abstractCommand'
-import { NamedMessage } from '../message'
-import { VideoFormat } from '../enums'
+import { AbstractCommandNoResponse } from './abstractCommand.js'
+import { NamedMessage } from '../message.js'
+import { VideoFormat } from '../enums.js'
 
 export class SlotSelectCommand extends AbstractCommandNoResponse {
 	slotId?: number

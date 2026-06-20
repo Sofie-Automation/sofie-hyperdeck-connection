@@ -57,7 +57,8 @@ export enum ResponseCodeType {
 	ASYNCHRONOUS,
 }
 
-export function GetResponseCodeType(val: ResponseCode): ResponseCodeType {
+export function GetResponseCodeType(val0: ResponseCode): ResponseCodeType {
+	const val = Number(val0)
 	if (val >= 100 && val <= 199) return ResponseCodeType.ERROR
 	if (val >= 200 && val <= 299) return ResponseCodeType.SYNCHRONOUS
 	if (val >= 500 && val <= 599) return ResponseCodeType.ASYNCHRONOUS

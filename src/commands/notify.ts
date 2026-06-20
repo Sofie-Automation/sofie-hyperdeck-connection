@@ -1,7 +1,7 @@
-import { SynchronousCode } from '../codes'
-import { ResponseMessage, NamedMessage } from '../message'
-import { AbstractCommand, AbstractCommandNoResponse } from './abstractCommand'
-import { SetBoolIfDefined } from '../util'
+import { SynchronousCode } from '../codes.js'
+import { ResponseMessage, NamedMessage } from '../message.js'
+import { AbstractCommand, AbstractCommandNoResponse } from './abstractCommand.js'
+import { SetBoolIfDefined } from '../util.js'
 
 export interface NotifyCommandResponse {
 	remote: boolean

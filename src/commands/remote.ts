@@ -1,7 +1,7 @@
-import { SynchronousCode } from '../codes'
-import { ResponseMessage, NamedMessage } from '../message'
-import { parseBool } from '../util'
-import { AbstractCommand, AbstractCommandNoResponse } from './abstractCommand'
+import { SynchronousCode } from '../codes.js'
+import { ResponseMessage, NamedMessage } from '../message.js'
+import { parseBool } from '../util.js'
+import { AbstractCommand, AbstractCommandNoResponse } from './abstractCommand.js'
 
 export interface RemoteInfoCommandResponse {
 	enabled?: boolean

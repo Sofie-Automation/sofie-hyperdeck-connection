@@ -1,5 +1,5 @@
-import { ConnectionInfoResponse } from './commands/connect'
-import { SlotStatus, TransportStatus, VideoFormat } from './enums'
+import { ConnectionInfoResponse } from './commands/connect.js'
+import { SlotStatus, TransportStatus, VideoFormat } from './enums.js'
 
 export interface HyperdeckEvents extends HyperdeckAsyncEvents {
 	error: [message: string, error: Error | unknown]

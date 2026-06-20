@@ -1,9 +1,9 @@
-import { VideoFormat, SlotStatus } from '../enums'
-import { ResponseMessage } from '../message'
-import { parseIntIfDefined } from '../util'
-import { IHandler } from './iHandler'
-import { AsynchronousCode } from '../codes'
-import { SlotInfoChangeResponse } from '../events'
+import { VideoFormat, SlotStatus } from '../enums.js'
+import { ResponseMessage } from '../message.js'
+import { parseIntIfDefined } from '../util.js'
+import { IHandler } from './iHandler.js'
+import { AsynchronousCode } from '../codes.js'
+import { SlotInfoChangeResponse } from '../events.js'
 
 export class SlotInfoChange implements IHandler<'notify.slot'> {
 	responseCode = AsynchronousCode.SlotInfo

@@ -1,6 +1,6 @@
-import { HyperdeckAsyncEvents } from '../events'
-import { AsynchronousCode } from '../codes'
-import { ResponseMessage } from '../message'
+import { HyperdeckAsyncEvents } from '../events.js'
+import { AsynchronousCode } from '../codes.js'
+import { ResponseMessage } from '../message.js'
 
 export interface IHandler<TEvent extends keyof HyperdeckAsyncEvents> {
 	responseCode: AsynchronousCode

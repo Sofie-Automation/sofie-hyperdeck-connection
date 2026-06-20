@@ -1,7 +1,7 @@
-import { AbstractCommandNoResponse, AbstractCommand } from './abstractCommand'
-import { NamedMessage, ResponseMessage } from '../message'
-import { SynchronousCode } from '../codes'
-import { FilesystemFormat } from '../enums'
+import { AbstractCommandNoResponse, AbstractCommand } from './abstractCommand.js'
+import { NamedMessage, ResponseMessage } from '../message.js'
+import { SynchronousCode } from '../codes.js'
+import { FilesystemFormat } from '../enums.js'
 
 export interface FormatCommandResponse {
 	code: string

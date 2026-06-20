@@ -1,4 +1,4 @@
-import { ResponseCode } from './codes'
+import type { ResponseCode } from './codes.js'
 
 export interface NamedMessage {
 	name: string

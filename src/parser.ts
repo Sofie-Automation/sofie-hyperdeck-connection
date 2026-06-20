@@ -1,5 +1,5 @@
-import { ResponseMessage, NamedMessage } from './message'
-import { SynchronousCode } from './codes'
+import type { ResponseMessage, NamedMessage } from './message.js'
+import { SynchronousCode } from './codes.js'
 
 export function buildMessageStr(msg: NamedMessage): string {
 	if (Object.keys(msg.params).length === 0) {
@@ -88,7 +88,7 @@ export class MultilineParser {
 			if (!lineMatch) {
 				if (this._debug) this._log('failed to parse line', lines[i])
 				// edge case for format command:
-				if (code === SynchronousCode.FormatReady && lines[i] !== '') {
+				if (code === Number(SynchronousCode.FormatReady) && lines[i] !== '') {
 					params['code'] = lines[i]
 				}
 				continue

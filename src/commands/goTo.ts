@@ -1,5 +1,5 @@
-import { NamedMessage } from '../message'
-import { AbstractCommandNoResponse } from './abstractCommand'
+import { NamedMessage } from '../message.js'
+import { AbstractCommandNoResponse } from './abstractCommand.js'
 
 export class GoToCommand extends AbstractCommandNoResponse {
 	constructor(

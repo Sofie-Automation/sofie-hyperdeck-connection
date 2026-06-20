@@ -1,9 +1,12 @@
-import { NamedMessage } from '../message'
-import { AbstractCommandNoResponse } from './abstractCommand'
+import { NamedMessage } from '../message.js'
+import { AbstractCommandNoResponse } from './abstractCommand.js'
 
 export class RecordCommand extends AbstractCommandNoResponse {
 	// TODO - append looks to be removed in 1.11
-	constructor(public filename?: string, public append?: boolean) {
+	constructor(
+		public filename?: string,
+		public append?: boolean
+	) {
 		super()
 	}
 

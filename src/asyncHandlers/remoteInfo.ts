@@ -1,8 +1,8 @@
-import { ResponseMessage } from '../message'
-import { parseBool } from '../util'
-import { IHandler } from './iHandler'
-import { AsynchronousCode } from '../codes'
-import { RemoteInfoChangeResponse } from '../events'
+import { ResponseMessage } from '../message.js'
+import { parseBool } from '../util.js'
+import { IHandler } from './iHandler.js'
+import { AsynchronousCode } from '../codes.js'
+import { RemoteInfoChangeResponse } from '../events.js'
 
 export class RemoteInfoChange implements IHandler<'notify.remote'> {
 	responseCode = AsynchronousCode.RemoteInfo

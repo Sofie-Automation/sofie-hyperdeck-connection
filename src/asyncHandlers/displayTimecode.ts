@@ -1,7 +1,7 @@
-import { ResponseMessage } from '../message'
-import { IHandler } from './iHandler'
-import { AsynchronousCode } from '../codes'
-import { DisplayTimecodeChangeResponse } from '../events'
+import { ResponseMessage } from '../message.js'
+import { IHandler } from './iHandler.js'
+import { AsynchronousCode } from '../codes.js'
+import { DisplayTimecodeChangeResponse } from '../events.js'
 
 export class DisplayTimecodeChange implements IHandler<'notify.displayTimecode'> {
 	responseCode = AsynchronousCode.DisplayTimecode
