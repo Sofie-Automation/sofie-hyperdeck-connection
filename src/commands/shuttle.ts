@@ -16,7 +16,7 @@ export class ShuttleCommand extends AbstractCommandNoResponse {
 			params: {},
 		}
 
-		if (this.speed) res.params.speed = this.speed + ''
+		if (this.speed !== undefined) res.params.speed = this.speed + ''
 
 		return res
 	}
