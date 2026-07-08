@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#specification) for commit guidelines.
 
+## [3.1.0](https://github.com/Sofie-Automation/sofie-hyperdeck-connection/compare/v3.0.0...v3.1.0) (Wed Jul 08 2026)
+
+
+### Features
+
+* support notify.playrange [3bfe159](https://github.com/Sofie-Automation/sofie-hyperdeck-connection/commit/3bfe15929862b524776d8f823ec12c29a03a6b66)
+
 ## [3.0.0](https://github.com/Sofie-Automation/sofie-hyperdeck-connection/compare/v2.0.1...v3.0.0) (Sat Jun 20 2026)
 
 ## Breaking changes
