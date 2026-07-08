@@ -1,6 +1,7 @@
 export * from './configuration.js'
 export * from './displayTimecode.js'
 export * from './iHandler.js'
+export * from './playrange.js'
 export * from './remoteInfo.js'
 export * from './slotInfo.js'
 export * from './timelinePosition.js'

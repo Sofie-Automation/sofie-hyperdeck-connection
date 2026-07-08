@@ -48,6 +48,7 @@ export enum AsynchronousCode {
 	Configuration = 511,
 	DisplayTimecode = 513,
 	TimelinePosition = 514,
+	Playrange = 515,
 }
 
 export enum ResponseCodeType {

@@ -14,6 +14,7 @@ export interface HyperdeckAsyncEvents {
 	'notify.timelinePosition': [TimelinePositionChangeResponse]
 	'notify.slot': [SlotInfoChangeResponse]
 	'notify.remote': [RemoteInfoChangeResponse]
+	'notify.playrange': [PlayrangeChangeResponse]
 }
 
 export interface DisplayTimecodeChangeResponse {
@@ -61,4 +62,9 @@ export interface SlotInfoChangeResponse {
 
 export interface RemoteInfoChangeResponse {
 	enabled?: boolean
+}
+
+export interface PlayrangeChangeResponse {
+	timelineIn: string
+	timelineOut: string
 }

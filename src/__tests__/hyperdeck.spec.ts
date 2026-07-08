@@ -386,4 +386,43 @@ describe('Hyperdeck', () => {
 		thisSocket.mockData('200 ok\r\n')
 		await res
 	})
+
+	test('Check async playrange', async () => {
+		let thisSocket: any
+		// @ts-ignore MockSocket
+		MockSocket.mockOnNextSocket((socket: any) => {
+			socket.onConnect = () => {
+				socket.mockData('500 connection info:\r\nprotocol version: 1.6\r\nmodel: test\r\n\r\n')
+			}
+			thisSocket = socket
+		})
+
+		const hp = new Hyperdeck({ pingPeriod: 0 })
+
+		const onClientError = vi.fn()
+		hp.on('error', onClientError)
+
+		hp.connect('127.0.0.1')
+		await waitALittleBit()
+
+		expect(hp.connected).toBeTruthy()
+		expect(onClientError).toHaveBeenCalledTimes(0)
+
+		const onAsyncReceive = vi.fn()
+		hp.on('notify.playrange', onAsyncReceive)
+
+		// A set play-range
+		thisSocket.mockData('515 playrange info:\r\ntimeline in: 1\r\ntimeline out: 121\r\n\r\n')
+		await waitALittleBit()
+		expect(onAsyncReceive).toHaveBeenCalledTimes(1)
+		expect(onAsyncReceive).toHaveBeenLastCalledWith({ timelineIn: '1', timelineOut: '121' })
+
+		// A cleared play-range
+		thisSocket.mockData('515 playrange info:\r\ntimeline in: none\r\ntimeline out: none\r\n\r\n')
+		await waitALittleBit()
+		expect(onAsyncReceive).toHaveBeenCalledTimes(2)
+		expect(onAsyncReceive).toHaveBeenLastCalledWith({ timelineIn: 'none', timelineOut: 'none' })
+
+		expect(onClientError).toHaveBeenCalledTimes(0)
+	})
 })
